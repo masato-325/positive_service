@@ -42,4 +42,4 @@ README ~ ER図作成 7/15 〆
 
 ## 画面遷移図
 figma :
-url
+https://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O8paY2d-://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O8paY2d-1
