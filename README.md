@@ -37,7 +37,7 @@
  README ~ ER図作成 7/15 〆
  メイン機能実装 7/15 ~ 7/30
  β 版を内部リリース(MVP) 8/10 〆
- 本番リリース 9月中旬
+ 本番リリース 9月卒業以内
   
   ## 画面遷移図
  figma : https://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O8    paY2d-://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O    8paY2d-1
