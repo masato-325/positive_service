@@ -23,6 +23,8 @@ services:
     tty: true
     depends_on:
       - db
+    environment:
+      - THOR_SILENCE_DEPRECATION=1
 volumes:
   postgres_volume:
 
