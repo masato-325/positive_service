@@ -72,3 +72,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :production do
+  gem "pd"
+end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development

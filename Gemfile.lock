@@ -94,6 +94,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.4)
+      rails
     erubi (1.12.0)
     execjs (2.8.1)
     faraday (2.7.10)
@@ -147,6 +149,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-aarch64-linux)
       racc (~> 1.4)
+    nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
+      racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
       snaky_hash (~> 2.0)
@@ -160,6 +166,7 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    pd (1.1.0)
     pg (1.5.3)
     popper_js (2.11.8)
     public_suffix (5.0.3)
@@ -261,15 +268,19 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
   bootstrap (~> 5.0.2)
   capybara
   debug
+  dockerfile-rails (>= 1.5)
   importmap-rails
   jbuilder
   jquery-rails
+  pd
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.7)
