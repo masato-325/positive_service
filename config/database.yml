@@ -83,7 +83,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: positive_service_production
-  username: positive_service
-  password: <%= ENV["POSITIVE_SERVICE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+

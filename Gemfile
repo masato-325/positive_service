@@ -44,6 +44,9 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.0.2'
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'ruby-openai'
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -72,3 +75,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :production do
+  gem "pd"
+end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
