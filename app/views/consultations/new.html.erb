@@ -1,0 +1,33 @@
+<div class="m-2 border">
+  <div class="w-full flex m-2">
+    <%= form_with(url: consultations_path, method: "post") do |f| %>
+
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :personality, "性格" %>
+      <%= f.select :personality, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] } %>
+
+      <%= f.label :speak_style, "話し方" %>
+      <%= f.select :speak_style, Character.speak_styles.map { |key, _| [Character.human_attribute_name("speak_style.#{key}"), key] } %>
+
+      <%= f.label :business, "職業" %>
+      <%= f.select :business, Character.businesses.map { |key, _| [Character.human_attribute_name("business.#{key}"), key] } %>
+
+      <%= f.label :given_name, "一人称" %>
+      <%= f.select :given_name, Character.given_names.map { |key, _| [Character.human_attribute_name("given_name.#{key}"), key] } %>
+
+      <%= f.label :age, "年齢" %>
+      <%= f.select :age, Character.ages.map { |key, _| [Character.human_attribute_name("age.#{key}"), key] } %>
+
+      <%= f.label :gender, "性別" %>
+      <%= f.select :gender, Character.genders.map { |key, _| [Character.human_attribute_name("gender.#{key}"), key] } %>
+
+      <%= f.label :input, "質問" %>
+      <%= f.text_area :input, placeholder: "質問を入力してください" %>
+
+      <%= f.submit "質問する" %>
+    <% end %>
+  </div>
+</div>
+

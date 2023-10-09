@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   delete "logout", to: "user_sessions#destroy"
 
   resources :users, only: %i[new create]
+
+  resources :consultations, except: [:show]
+  get 'consultations/show', to: 'consultations#show', as: 'consultation_show'
   # Defines the root path route ("/")
   # root "articles#index"
 end
