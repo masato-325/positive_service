@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   validates :name, length: { maximum: 20 }
- 
+  has_many :consultations 
 end

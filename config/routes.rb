@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
 
-  resources :consultations, except: [:show]
-  get 'consultations/show', to: 'consultations#show', as: 'consultation_show'
+  resources :consultations
   # Defines the root path route ("/")
   # root "articles#index"
 end
