@@ -23,8 +23,8 @@
       <%= f.label :gender, "性別" %>
       <%= f.select :gender, Character.genders.map { |key, _| [Character.human_attribute_name("gender.#{key}"), key] } %>
 
-      <%= f.label :input, "質問" %>
-      <%= f.text_area :input, placeholder: "質問を入力してください" %>
+      <%= f.label :title, "質問" %>
+      <%= f.text_area :title, placeholder: "質問を入力してください" %>
 
       <%= f.submit "質問する" %>
     <% end %>
