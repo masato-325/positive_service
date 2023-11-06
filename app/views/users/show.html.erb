@@ -1,0 +1,12 @@
+<h1><%= @user.name %>さんのマイページ</h1>
+ <div> 
+   <% @consultations.each do |consultation| %>
+    <div>
+     <%= link_to consultation.title, consultation_path(consultation) %>
+     <p><%= truncate(consultation.message, length: 30) %></p>
+    </div>
+   <% end %>
+ </div>
+
+
+```

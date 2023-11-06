@@ -11,12 +11,15 @@
   <div class="mx-4">
     <%= link_to "https://twitter.com/share?url=#{request.base_url}&text=AI「#{CGI.escape(quote)}」&hashtags=ポジティブは世界を救う！！", target: '_blank', class: 'mx-4 x-share-button', data: { show_count: 'false' } do %>
       <div class="flex">
-        <!-- TwitterアイコンなどのSVGがここに入る -->
-        この引用をポストする！
+        ポストしてシェアする！
       </div>
     <% end %>
+  </div>
+  <div>
+    <a class="entry-share-button entry-share-button-twitter test-share-button-twitter" href="https://twitter.com/intent/tweet?text=Rails+%E3%81%A7+Base64+%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%89%E3%81%95%E3%82%8C%E3%81%9F%E6%96%87%E5%AD%97%E3%82%92+Carrierwave+%E3%81%A7%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E6%9C%80%E3%82%82%E8%89%AF%E3%81%84%E6%96%B9%E6%B3%95+-+unching-star%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0&amp;url=https%3A%2F%2Funching-star.hatenablog.jp%2Fentry%2F2016%2F05%2F24%2F102124" title="X（Twitter）で投稿する"></a>
   </div>
 <% end %>
   <div>
     <%=link_to '質問に戻る', new_consultation_path %>
+    <%=link_to 'マイページ', mypage_path %>
 </div>
