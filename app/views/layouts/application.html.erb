@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <% if logged_in? %>
+      <%= render 'layouts/login_header' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
