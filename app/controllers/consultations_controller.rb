@@ -21,6 +21,7 @@ class ConsultationsController < ApplicationController
     consultation = current_user.consultations.new(title: params[:title], message: ai_response)
     if consultation.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
+      flash[:notice] = '相談を投稿しました'
       redirect_to consultation_path(consultation)
     else
       # 失敗したらnewテンプレートを再表示

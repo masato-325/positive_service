@@ -16,6 +16,11 @@
     <% else %>
       <%= render 'layouts/header' %>
     <% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= bootstrap_class_for(message_type) %>" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
