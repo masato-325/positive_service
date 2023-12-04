@@ -35,6 +35,13 @@ class ConsultationsController < ApplicationController
     @response = @consultation.message
   end
 
+  def destroy
+    # データベースから既に保存されたConsultationを削除
+    @consultation = Consultation.find(params[:id])
+    @consultation.destroy
+    redirect_to mypage_path
+  end
+
   private
 
   def set_openai_client
