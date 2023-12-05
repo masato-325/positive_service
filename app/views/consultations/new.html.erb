@@ -1,6 +1,6 @@
 <div class="m-2 border">
   <div class="w-full flex m-2">
-    <%= form_with(url: consultations_path, method: "post") do |f| %>
+    <%= form_with(model: Consultation.new, url: consultations_path, method: "post") do |f| %>
 
       <%= f.label :name, "名前" %>
       <%= f.text_field :name %>
@@ -26,7 +26,11 @@
       <%= f.label :title, "質問" %>
       <%= f.text_area :title, placeholder: "質問を入力してください" %>
 
-      <%= f.submit "質問する" %>
+      <%= f.label :public_status, "公開状態" %>
+      <%= f.select :public_status, Consultation.public_statuses.keys.map { |status| [status, status] } %>
+
+      <%= f.submit "質問する", data: { confirm: "公開されますがよろしいですか？" } %>
+
     <% end %>
   </div>
 </div>
