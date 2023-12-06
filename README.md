@@ -44,6 +44,9 @@ README ~ ER図作成 7/15 〆
 figma :
 https://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O8paY2d-://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E7%9B%B8%E8%AB%87%E5%AE%A4?type=design&node-id=0%3A1&mode=design&t=3RheWlgs6O8paY2d-1
 
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/4efd998d5c2b3f96c4e81d2a8eabfd95.png)](https://gyazo.com/4efd998d5c2b3f96c4e81d2a8eabfd95)
+
 ## 技術選定
 - 開発環境: Docker
 - サーバーサイド: Ruby on Rails 7系

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   get "mypage", to: "users#show"
 
-  resources :consultations, only: %i[new create show destroy]
+  resources :consultations, only: %i[new create show destroy] do
+    resources :comments, only: %i[create destroy], shallow: true
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end
