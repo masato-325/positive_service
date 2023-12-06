@@ -1,5 +1,6 @@
 class Consultation < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
   enum public_status: { "公開" => 0, "非公開" => 1 }, _prefix: :public_status
 
   # 公開された相談のみを取得するスコープ

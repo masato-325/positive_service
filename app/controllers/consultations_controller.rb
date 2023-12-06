@@ -1,5 +1,8 @@
 class ConsultationsController < ApplicationController
   before_action :set_openai_client, only: [:create, :show]
+  before_action :set_consultation, only: [:show, :destroy]
+  before_action :require_login, only: [:new, :create, :destroy]
+  before_action :require_ownership, only: [:destroy]
 
   def new
     # 新しい質問のフォームを表示
@@ -50,5 +53,13 @@ class ConsultationsController < ApplicationController
 
   def consultation_params
     params.require(:consultation).permit(:title, :public_status)
+  end
+
+  def set_consultation
+    @consultation = Consultation.find(params[:id])
+  end
+
+  def require_ownership
+    redirect_to root_path, alert: '不正なアクセスです' unless current_user == @consultation.user
   end
 end

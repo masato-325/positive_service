@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { maximum: 20 }
   has_many :consultations 
+  has_many :comments, dependent: :destroy
 end
