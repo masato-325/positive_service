@@ -46,13 +46,3 @@ https://www.figma.com/file/JZwXYHEcEfo1ZoxdfFhCIG/%E3%83%9D%E3%82%B8%E3%83%86%E3
 
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/4efd998d5c2b3f96c4e81d2a8eabfd95.png)](https://gyazo.com/4efd998d5c2b3f96c4e81d2a8eabfd95)
-
-## 技術選定
-- 開発環境: Docker
-- サーバーサイド: Ruby on Rails 7系
-- フロントエンド
-- CSSフレームワーク: bootstrap,tailwind
-- WebAPI: OpenAI API
-- インフラ
-    - Webアプリケーションサーバー: Fly.io
-
