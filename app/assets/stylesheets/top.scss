@@ -19,3 +19,17 @@
     }
   }
 }
+  .top-under-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #3aacad;
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.0rem;
+    }
+  }

@@ -6,19 +6,21 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    # OpenAIに問い合わせて回答を取得
+    # フォームから送信されたデータを使用して Character の属性を取得
     character_info = {
-      personality: params[:personality],
-      speak_style: params[:speak_style],
-      business: params[:business],
-      given_name: params[:given_name],
-      age: params[:age],
-      gender: params[:gender]
+      personality: params[:consultation][:personality],
+      speak_style: params[:consultation][:speak_style],
+      business: params[:consultation][:business],
+      given_name: params[:consultation][:given_name],
+      age: params[:consultation][:age],
+      gender: params[:consultation][:gender]
     }
-    ai_response = @openai_client.chat(params[:title], character_info)
-
+  
+    # OpenAIに問い合わせて回答を取得
+    ai_response = @openai_client.chat(params[:consultation][:title], character_info)
+  
     # Consultationレコードを作成して保存
-    consultation = current_user.consultations.new(title: params[:title], message: ai_response)
+    consultation = current_user.consultations.new(consultation_params.merge(message: ai_response))
     if consultation.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
       flash[:notice] = '相談を投稿しました'
@@ -30,9 +32,7 @@ class ConsultationsController < ApplicationController
   end
 
   def show
-    # データベースから既に保存されたConsultationを取得
     @consultation = Consultation.find(params[:id])
-    @response = @consultation.message
   end
 
   def destroy
@@ -49,6 +49,6 @@ class ConsultationsController < ApplicationController
   end
 
   def consultation_params
-    params.require(:consultation).permit(:title, :personality, :speak_style, :business, :given_name, :age, :gender)
+    params.require(:consultation).permit(:title, :public_status)
   end
 end

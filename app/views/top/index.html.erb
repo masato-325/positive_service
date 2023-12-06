@@ -2,4 +2,17 @@
   <div class='top-inner-text'>
     <h1>POSITIVE SERVICE</h1>
   </div>
+  <div class= 'top-under-text' >
+    <p>あなただけのAIがあたなの悩みをポジティブに解決します</p>
+  </div>
 </div>
+  <% @public_consultations.each do |consultation| %>
+    <div class="col-md-4">
+      <div class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
+          <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>

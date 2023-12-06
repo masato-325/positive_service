@@ -4,24 +4,19 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo.png", alt: "logo", class: "logo" %>
       <% end %>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to 'ログイン', login_path, class: "nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'プロフィール', '#', class: 'nav-link' %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= link_to 'マイページ', '#', { class: 'nav-link dropdown-toggle', id: 'navbarDropdown', role: 'button', data: { bs_toggle: 'dropdown' }, aria: { expanded: 'false' } } %>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to 'マイページ', mypage_path(current_user), class: "dropdown-item" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+        <li class= "nav-item">
+          <%= link_to '相談する', new_consultation_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'マイページ', mypage_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか?' }, class: "nav-link" %>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>
