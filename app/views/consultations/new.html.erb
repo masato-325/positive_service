@@ -1,37 +1,54 @@
-<div class="m-2 border">
-  <div class="w-full flex m-2">
-    <%= form_with(model: Consultation.new, url: consultations_path, method: "post") do |f| %>
+<div class="m-2 border p-3">
+  <%= form_with(model: Consultation.new, url: consultations_path, method: "post", class: "row g-3") do |f| %>
 
-      <%= f.label :name, "名前" %>
-      <%= f.text_field :name %>
+    <div class="col-md-6">
+      <%= f.label :name, "名前", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-      <%= f.label :personality, "性格" %>
-      <%= f.select :personality, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :personality, "性格", class: "form-label" %>
+      <%= f.select :personality, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :speak_style, "話し方" %>
-      <%= f.select :speak_style, Character.speak_styles.map { |key, _| [Character.human_attribute_name("speak_style.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :speak_style, "話し方", class: "form-label" %>
+      <%= f.select :speak_style, Character.speak_styles.map { |key, _| [Character.human_attribute_name("speak_style.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :business, "職業" %>
-      <%= f.select :business, Character.businesses.map { |key, _| [Character.human_attribute_name("business.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :business, "職業", class: "form-label" %>
+      <%= f.select :business, Character.businesses.map { |key, _| [Character.human_attribute_name("business.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :given_name, "一人称" %>
-      <%= f.select :given_name, Character.given_names.map { |key, _| [Character.human_attribute_name("given_name.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :given_name, "一人称", class: "form-label" %>
+      <%= f.select :given_name, Character.given_names.map { |key, _| [Character.human_attribute_name("given_name.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :age, "年齢" %>
-      <%= f.select :age, Character.ages.map { |key, _| [Character.human_attribute_name("age.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :age, "年齢", class: "form-label" %>
+      <%= f.select :age, Character.ages.map { |key, _| [Character.human_attribute_name("age.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :gender, "性別" %>
-      <%= f.select :gender, Character.genders.map { |key, _| [Character.human_attribute_name("gender.#{key}"), key] } %>
+    <div class="col-md-6">
+      <%= f.label :gender, "性別", class: "form-label" %>
+      <%= f.select :gender, Character.genders.map { |key, _| [Character.human_attribute_name("gender.#{key}"), key] }, {}, class: "form-select" %>
+    </div>
 
-      <%= f.label :title, "質問" %>
-      <%= f.text_area :title, placeholder: "質問を入力してください" %>
+    <div class="col-12">
+      <%= f.label :title, "質問", class: "form-label" %>
+      <%= f.text_area :title, placeholder: "質問を入力してください", class: "form-control" %>
+    </div>
 
-      <%= f.label :public_status, "公開状態" %>
-      <%= f.select :public_status, Consultation.public_statuses.keys.map { |status| [status, status] } %>
+    <div class="col-3">
+      <%= f.label :public_status, "公開状態", class: "form-label" %>
+      <%= f.select :public_status, Consultation.public_statuses.keys.map { |status| [status, status] }, {}, class: "form-select", id: 'consultation-public-status' %>
+    </div>
 
-      <%= f.submit "質問する", data: { confirm: "公開されますがよろしいですか？" } %>
+    <div class="col-12">
+      <%= f.submit "質問する", class: "btn btn-primary" %>
+    </div>
 
-    <% end %>
-  </div>
+  <% end %>
 </div>
-
