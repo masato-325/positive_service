@@ -1,0 +1,11 @@
+<% if @consultation.errors.any? %>
+  <div id="error_explanation", class="alert alert-danger">
+    <h2><%= pluralize(@consultation.errors.count, "つ") %> の項目を確認してください</h2>
+
+    <ul>
+      <% @consultation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

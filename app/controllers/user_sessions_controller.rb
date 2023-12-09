@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  def new; end
+  def new; end 
 
   def create
     @user = login(params[:email], params[:password])
@@ -7,6 +7,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = 'ログインしました'
       redirect_back_or_to new_consultation_path
     else 
+      flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません。'
       render :new 
     end
   end
