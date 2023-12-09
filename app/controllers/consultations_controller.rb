@@ -27,7 +27,7 @@ class ConsultationsController < ApplicationController
     if @consultation.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
       flash[:notice] = '相談を投稿しました'
-      redirect_to consultation_path(consultation)
+      redirect_to consultation_path(@consultation)
     else
       # 失敗したらnewテンプレートを再表示
       render :new, status: :unprocessable_entity
