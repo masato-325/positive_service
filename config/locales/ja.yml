@@ -3,12 +3,15 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      consultation: 相談
     attributes:
       user:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード（確認用）"
         name: "ニックネーム"
+      consultations:
+        title: "質問内容"
     errors:
       format: "%{attribute}%{message}"
       template:

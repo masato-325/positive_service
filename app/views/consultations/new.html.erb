@@ -1,6 +1,7 @@
 <div class="m-2 border p-3">
+  <%= render "error" %>
   <h3>あなただけのAIを作ってみましょう！！</h3>
-  <%= form_with(model: Consultation.new, url: consultations_path, method: "post", class: "row g-3") do |f| %>
+  <%= form_with(model: Consultation.new, url: consultations_path, method: "post", class: "row g-3", id: "consultation-form") do |f| %>
 
     <div class="col-md-6">
       <%= f.label :name, "AIの名前", class: "form-label" %>

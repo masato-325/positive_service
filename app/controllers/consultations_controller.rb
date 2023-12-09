@@ -5,7 +5,7 @@ class ConsultationsController < ApplicationController
   before_action :require_ownership, only: [:destroy]
 
   def new
-    # 新しい質問のフォームを表示
+    @consultation = Consultation.new
   end
 
   def create
@@ -23,14 +23,14 @@ class ConsultationsController < ApplicationController
     ai_response = @openai_client.chat(params[:consultation][:title], character_info)
   
     # Consultationレコードを作成して保存
-    consultation = current_user.consultations.new(consultation_params.merge(message: ai_response))
-    if consultation.save
+    @consultation = current_user.consultations.new(consultation_params.merge(message: ai_response))
+    if @consultation.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
       flash[:notice] = '相談を投稿しました'
       redirect_to consultation_path(consultation)
     else
       # 失敗したらnewテンプレートを再表示
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class ConsultationsController < ApplicationController
     # データベースから既に保存されたConsultationを削除
     @consultation = Consultation.find(params[:id])
     @consultation.destroy
-    redirect_to mypage_path
+    redirect_to mypage_path, notice: '相談を削除しました'
   end
 
   private

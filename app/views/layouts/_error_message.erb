@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
   <div id="error_explanation" class="alert alert-danger">
-    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+    <h6><%= pluralize(@user.errors.count, "つ") %> の項目を確認してください</h6>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
