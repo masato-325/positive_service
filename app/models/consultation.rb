@@ -5,6 +5,10 @@ class Consultation < ApplicationRecord
 
   validates :title, presence: true # タイトルは必須
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title message public_status created_at updated_at]
+  end
+
   # 公開された相談のみを取得するスコープ
   scope :public_consultations, -> { where(public_status: public_statuses["公開"]) }
 end

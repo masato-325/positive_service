@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @consultations = @user.consultations
+    @search = @consultations.ransack(params[:q])
+    @results = @search.result
   end
   
   private

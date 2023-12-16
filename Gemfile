@@ -45,6 +45,7 @@ gem 'bootstrap', '~> 5.0.2'
 gem 'sorcery'
 gem 'ruby-openai'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'ransack'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
