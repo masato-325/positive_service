@@ -1,0 +1,47 @@
+<div class='top-wrapper'>
+  <div class='top-inner-text'>
+    <h1>POSITIVE SERVICE</h1>
+  </div>
+  <div class='top-under-text'>
+    <p>あなただけのAIがあたなの悩みをポジティブに解決します</p>
+  </div>
+</div>
+
+<% @public_consultations.each do |consultation| %>
+  <div class="col-md-4">
+    <div class="card" style="width: 50rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
+        <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="features-section" style="background-color: #e6f2e6;">
+  <h2 class="text-center mt-5 mb-4">アプリの特徴</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-smile-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>ポジティブ変換</h5>
+      <p>どんな悩みも明るくポジティブに変換します。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>カスタマイズ可能</h5>
+      <p>お好きなキャラクターをカスタマイズして、個性的な回答を。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>X（旧Twitter）でシェア</h5>
+      <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>コメント可能</h5>
+      <p>他のユーザーの相談に対してコメントができます。</p>
+    </div>
+  </div>
+</div>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">

@@ -1,47 +1,63 @@
-<div class='top-wrapper'>
-  <div class='top-inner-text'>
-    <h1>POSITIVE SERVICE</h1>
-    </div>
-    <div class= 'top-under-text' >
-      <p>あなただけのAIがあたなの悩みをポジティブに解決します</p>
-    </div>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <% @public_consultations.each do |consultation| %>
-    <div class="col-md-4">
-      <div class="card" style="width: 50rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
-          <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("top_page.png", class: "d-block w-100",style: "height: 600px;", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>ポジティブな世界へようこそ</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("top_page2.jpg", class: "d-block w-100", alt: "...") %>
+      <div class="carousel-caption">
+        <h2 style="color: black;">このアプリでできること</h2>
+        <p style="color: black; margin-bottom: 90px;">
+          このアプリはあなたの悩みや普段イライラしていること、気になっていることなどをあなた好みのAIを作ってどんな相談もポジティブにそして簡単な解決策を導いてくれます。
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-md-3 text-center">
+            <i class="fa fa-smile-o fa-3x" aria-hidden="true" style="color: #28a44a;"></i>
+            <h5>ポジティブ変換</h5>
+            <p>どんな悩みも明るくポジティブに変換します。</p>
+          </div>
+            <div class="col-md-6 col-lg-3 text-center">
+              <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+              <h5>カスタマイズ可能</h5>
+              <p>お好きなキャラクターをカスタマイズして、個性的な回答を。</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center">
+              <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+              <h5>X（旧Twitter）でシェア</h5>
+              <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center">
+              <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+              <h5>コメント可能</h5>
+              <p>他のユーザーの相談に対してコメントができます。</p>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
-  <% end %>
-</div>
-<div class="features-section" style="background-color: #e6f2e6;">
-    <h2 class="text-center mt-5 mb-4">アプリの特徴</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-smile-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>ポジティブ変換</h5>
-        <p>どんな悩みも明るくポジティブに変換します。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>カスタマイズ可能</h5>
-        <p>お好きなキャラクターをカスタマイズして、個性的な回答を。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>X（旧Twitter）でシェア</h5>
-        <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>コメント可能</h5>
-        <p>他のユーザーの相談に対してコメントができます。</p>
+    <div class="carousel-item">
+      <%= image_tag("character_page.png", class: "d-block w-100", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
