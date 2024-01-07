@@ -1,47 +1,118 @@
 <div class='top-wrapper'>
   <div class='top-inner-text'>
     <h1>POSITIVE SERVICE</h1>
-    </div>
-    <div class= 'top-under-text' >
-      <p>あなただけのAIがあたなの悩みをポジティブに解決します</p>
+  </div>
+  <div class='top-under-text'>
+    <p>あなただけのAIがあたなの悩みをポジティブに解決します</p>
+  </div>
+</div>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("top_page.png", class: "d-block w-100", style: "height: calc(100vh - 134px);", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="font-family: 'Dela Gothic One', sans-serif;">ポジティブな世界へようこそ</h2>
+        <p>日々の悩みやイライラをあなただけのAIでポジティブに毎日を送ろう</p>
+      </div>
+      
     </div>
   </div>
-  <% @public_consultations.each do |consultation| %>
-    <div class="col-md-4">
-      <div class="card" style="width: 50rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
-          <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+  <div class="carousel-item">
+    <%= image_tag("top_page2.jpg", class: "d-block w-100", style: "height: calc(100vh - 134px);", alt: "...") %>
+    <div class="carousel-caption" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);">
+      <h2 style="color: black; font-family: 'Dela Gothic One', sans-serif;">このアプリでできること</h2>
+      <p style="color: black;">このアプリはあなたの悩みや普段イライラしていること、気になっていることなどをあなた好みのAIを作ってどんな相談もポジティブにそして簡単な解決策を導いてくれます。</p>
+    </div>
+        <div class="row justify-content-center" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 100%; background-color: #b3d9b3; padding: 20px;">
+
+        <div class="col-md-3 text-center">
+          <i class="fa fa-smile-o fa-3x" aria-hidden="true" style="color: #28a44a;"></i>
+          <h5>ポジティブ変換</h5>
+          <p style="color: #ebf5f5; text-align: left;">
+            どんな悩みも明るくポジティブに変換します。あなたのイライラ嫉妬も愚痴でもどんなことでも相談してください。
+          </p>
         </div>
+        <div class="col-md-6 col-lg-3 text-center">
+          <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+          <h5>カスタマイズ可能</h5>
+          <p style="color: #ebf5f5; text-align: left;">
+            AIのキャラクターを自分好みにカスタマイズできます。お好きなキャラクターをカスタマイズして、個性的な回答を。
+            あなただけの相棒を作ってポジティブに毎日を過ごしましょう。
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-3 text-center">
+          <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+          <h5>X（旧Twitter）でシェア</h5>
+          <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
+        </div>
+        <div class="col-md-6 col-lg-3 text-center">
+          <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+          <h5>コメント可能</h5>
+          <p>他のユーザーの相談に対してコメントができます。</p>
+        </div>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <style>
+          @media (max-width: 768px) {
+            .carousel-caption {
+              position: static;
+              transform: none;
+              top: auto;
+              left: auto;
+            }
+          }
+        </style>
       </div>
     </div>
-  <% end %>
+    <!--
+    <div class="carousel-item">
+      <%= image_tag("character_page.png", class: "d-block w-100", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>このアプリの使い方はその他を実装してから加えます</h5>
+        <p>諸々の機能を実装後編集予定</p>
+      </div>
+    </div>
+    -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<div class="features-section" style="background-color: #e6f2e6;">
-    <h2 class="text-center mt-5 mb-4">アプリの特徴</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-smile-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>ポジティブ変換</h5>
-        <p>どんな悩みも明るくポジティブに変換します。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>カスタマイズ可能</h5>
-        <p>お好きなキャラクターをカスタマイズして、個性的な回答を。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>X（旧Twitter）でシェア</h5>
-        <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
-      </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
-        <h5>コメント可能</h5>
-        <p>他のユーザーの相談に対してコメントができます。</p>
-      </div>
+
+<!--!div class="features-section" style="background-color: #e6f2e6;">
+  <h2 class="text-center mt-5 mb-4">アプリの特徴</h2>
+  <div class="row">
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-smile-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>ポジティブ変換</h5>
+      <p>どんな悩みも明るくポジティブに変換します。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-user-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>カスタマイズ可能</h5>
+      <p>お好きなキャラクターをカスタマイズして、個性的な回答を。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-twitter fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>X（旧Twitter）でシェア</h5>
+      <p>AIの回答をXでシェアし、友達と共有しましょう。</p>
+    </div>
+    <div class="col-md-6 col-lg-3 text-center">
+      <i class="fa fa-comments-o fa-3x mb-3" aria-hidden="true" style="color: #28a745;"></i>
+      <h5>コメント可能</h5>
+      <p>他のユーザーの相談に対してコメントができます。</p>
     </div>
   </div>
 </div>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"-->

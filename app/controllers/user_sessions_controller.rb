@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
     if @user
       flash[:notice] = 'ログインしました'
-      redirect_back_or_to new_consultation_path
+      redirect_back_or_to login_top_path
     else 
       flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません。'
       render :new 
