@@ -1,6 +1,7 @@
 class Consultation < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  belongs_to :character
   enum public_status: { "公開" => 0, "非公開" => 1 }, _prefix: :public_status
 
   validates :title, presence: true # タイトルは必須
