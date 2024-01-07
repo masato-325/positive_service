@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :consultations, only: %i[new create show destroy] do
     resources :comments, only: %i[create destroy], shallow: true
   end
+
+  get "login_top", to: "login_top#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end
