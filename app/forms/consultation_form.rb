@@ -2,6 +2,7 @@ class ConsultationForm
   include ActiveModel::Model
 
   attr_accessor :title, :message, :public_status, :name, :personality, :speak_style, :business, :given_name, :age, :gender, :user_id
+  attr_reader :consultation
 
   def save
     return false unless valid?
@@ -13,5 +14,9 @@ class ConsultationForm
     true
   rescue ActiveRecord::RecordInvalid
     false
+  end
+
+  def consultation
+    @consultation
   end
 end
