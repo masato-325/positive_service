@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-  has_many :consultations
+  has_many :consultations, dependent: :destroy
 
   enum personality: { "指定しない" => 0, "優しい" => 1, "ツンデレ" => 2, "ナルシスト" => 3, "神々しい" => 4 }, _prefix: :personality #性格
   enum speak_style: { "指定しない" => 0, "高圧的" => 1, "優しい" => 2, "品がある" => 3, "関西弁" => 4 }, _prefix: :speak_style #話し方

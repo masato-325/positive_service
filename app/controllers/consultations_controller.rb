@@ -42,6 +42,7 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+    @character = @consultation.character
   end
 
   def destroy

@@ -2,6 +2,23 @@
   <div class="row">
     <div class="col-md-8">
       <div class="card">
+        <div class="card-body bg-light">
+          <% if @character.present? %>
+            <h5 class="card-title">AIの性格</h5>
+            <p class="card-text">
+              <%= "名前: " + @character.name if @character.name.present? %>
+              <%= "性格: " + @character.personality if @character.personality.present? %>
+              <%= "話し方: " + @character.speak_style if @character.speak_style.present? %>
+              <%= "職業: " + @character.business if @character.business.present? %>
+              <%= "一人称: " + @character.given_name if @character.given_name.present? %>
+              <%= "年齢: " + @character.age if @character.age.present? %>
+              <%= "性別: " + @character.gender if @character.gender.present? %>
+            </p>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">AIの回答</h5>
           <p class="card-text"><%= @consultation.message %></p>
