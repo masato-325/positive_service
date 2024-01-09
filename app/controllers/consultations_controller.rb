@@ -5,37 +5,44 @@ class ConsultationsController < ApplicationController
   before_action :require_ownership, only: [:destroy]
 
   def new
-    @consultation = Consultation.new
+    @consultation_form = ConsultationForm.new
   end
 
   def create
+    # ConsultationForm オブジェクトを初期化
+    @consultation_form = ConsultationForm.new(consultation_form_params.merge(user_id: current_user.id))
+  
     # フォームから送信されたデータを使用して Character の属性を取得
     character_info = {
-      personality: params[:consultation][:personality],
-      speak_style: params[:consultation][:speak_style],
-      business: params[:consultation][:business],
-      given_name: params[:consultation][:given_name],
-      age: params[:consultation][:age],
-      gender: params[:consultation][:gender]
+      personality: @consultation_form.personality,
+      speak_style: @consultation_form.speak_style,
+      business: @consultation_form.business,
+      given_name: @consultation_form.given_name,
+      age: @consultation_form.age,
+      gender: @consultation_form.gender
     }
   
     # OpenAIに問い合わせて回答を取得
-    ai_response = @openai_client.chat(params[:consultation][:title], character_info)
+    ai_response = @openai_client.chat(@consultation_form.title, character_info)
   
-    # Consultationレコードを作成して保存
-    @consultation = current_user.consultations.new(consultation_params.merge(message: ai_response))
-    if @consultation.save
+    # ConsultationForm オブジェクトにAIのレスポンスを追加
+    @consultation_form.message = ai_response
+  
+    # ConsultationForm オブジェクトの保存
+    if @consultation_form.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
       flash[:notice] = '相談を投稿しました'
-      redirect_to consultation_path(@consultation)
+      redirect_to consultation_path(@consultation_form.consultation)
     else
       # 失敗したらnewテンプレートを再表示
       render :new, status: :unprocessable_entity
     end
   end
+  
 
   def show
     @consultation = Consultation.find(params[:id])
+    @character = @consultation.character
   end
 
   def destroy
@@ -51,10 +58,10 @@ class ConsultationsController < ApplicationController
     @openai_client = OpenAiClient.new
   end
 
-  def consultation_params
-    params.require(:consultation).permit(:title, :public_status)
+  def consultation_form_params
+    params.require(:consultation_form).permit(:title, :public_status, :name, :personality, :speak_style, :business, :given_name, :age, :gender)
   end
-
+  
   def set_consultation
     @consultation = Consultation.find(params[:id])
   end
