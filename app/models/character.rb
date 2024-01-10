@@ -7,4 +7,8 @@ class Character < ApplicationRecord
   enum given_name: { "私" => 0, "俺" => 1, "僕" => 2, "俺様" => 3 ,"あたい" => 4 }, _prefix: :given_name #一人称
   enum age: { "指定しない" => 0, "10代" => 1, "20代" => 2, "30代" => 3 }, _prefix: :age #年齢
   enum gender: { "指定しない" => 0, "女性" => 1, "男性" => 2 }, _prefix: :gender  #性別
+
+  def self.ransackable_associations(auth_object = nil)
+    super + ['character']
+  end
 end

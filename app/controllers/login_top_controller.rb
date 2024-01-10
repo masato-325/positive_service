@@ -1,7 +1,8 @@
 class LoginTopController < ApplicationController
   def index
-    @public_consultations = Consultation.public_consultations
+    @search = Consultation.public_consultations.ransack(params[:q])
+    @consultations = @search.result.includes(:character)
   end
-
+  
   def policy; end
 end

@@ -1,5 +1,5 @@
 <h1><%= @user.name %>さんのマイページ</h1>
-  <%= render "search" %>
+  <%= render "shared/search", search: @search, search_path: mypage_path(@user) %>
   <% if params[:q].present? %>
       <div class="row">
     <% @results.each do |consultation| %>

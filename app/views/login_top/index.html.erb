@@ -1,4 +1,5 @@
-<% @public_consultations.each do |consultation| %>
+<%= render 'shared/search', search: @search, search_path: login_top_path %>
+<% @consultations.each do |consultation| %>
   <div class="col-md-4">
     <div class="card" style="width: 50rem;">
       <div class="card-body">
