@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Dela+Gothic+One&display=swap');
 
-
+.back-image {
+  background-image: image-url("back.jpg");
+}
 .nav-link {
   white-space: nowrap;
 }

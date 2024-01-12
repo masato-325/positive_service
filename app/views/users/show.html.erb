@@ -1,5 +1,8 @@
 <h1><%= @user.name %>さんのマイページ</h1>
   <%= render "shared/search", search: @search, search_path: mypage_path(@user) %>
+  <div>
+    <%= link_to "リセット", mypage_path(@user), class: "btn btn-outline-secondary" %>
+  </div>
   <% if params[:q].present? %>
       <div class="row">
     <% @results.each do |consultation| %>

@@ -14,6 +14,10 @@
           <%= f.label :created_at_gteq, "質問日時", class: "form-label fw-bold" %>
           <%= f.date_field :created_at_gteq, class: "form-control" %>
         <div>
+        <div class= "flex-grow me-2">
+          <%= f.label :character_personality_eq, "性格" %>
+          <%= f.select :character_personality_eq, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+        </div>
           <%= f.submit "検索", class: "btn btn-primary" %>
         </div>
       <% end %>

@@ -13,8 +13,8 @@
     </div>
 
     <div class="col-md-6">
-      <%= f.label :speak_style, "話し方", class: "form-label" %>
-      <%= f.select :speak_style, Character.speak_styles.map { |key, _| [Character.human_attribute_name("speak_style.#{key}"), key] }, {}, class: "form-select" %>
+      <%= f.label :speak_type, "話し方", class: "form-label" %>
+      <%= f.select :speak_type, Character.speak_type.map { |key, _| [Character.human_attribute_name("speak_type.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
