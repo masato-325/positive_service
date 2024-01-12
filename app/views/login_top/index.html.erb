@@ -1,9 +1,33 @@
-<% @public_consultations.each do |consultation| %>
-  <div class="col-md-4">
-    <div class="card" style="width: 50rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
-        <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+<h1 class="row justify-content-center">ようこそ！！<%= @user.name %>さん</h1>
+<div class="row-md-4 justify-content-center">
+  <%= link_to "キャラクターを作って悩みを打ち明ける", new_consultation_path, class: "btn btn-primary btn-lg" %>
+</div>
+    <%= render 'shared/search', search: @search, search_path: login_top_path %>
+<div>
+  <%= link_to "リセット", login_top_path(@consultation), class: "btn btn-outline-secondary" %>
+</div>
+<% @consultations.each do |consultation| %>
+  <div class="col-md-6">
+    <div class="card mb-3" style="width: 80rem;">
+      <div class="list-group list-group-flush">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item", style= "background-color: #b3d9b3;">
+            <%= consultation.user.name %> さんの相談　
+            <%= consultation.created_at.strftime("%Y年%m月%d日") %>
+          </li>
+          <li class="list-group-item"><%= link_to consultation.title, consultation_path(consultation) %></li>
+          <li class="list-group-item"><%= truncate(consultation.message, length: 80) %></li>
+          <li class="list-group-item">
+            <% if consultation.character.present? %>
+              <%= "名前: " + (consultation.character.name || "未設定") %>
+              <%= "性格: " + (consultation.character.personality || "未設定") %>
+              <%= "話し方: " + (consultation.character.speak_type || "未設定") %>
+              <%= "職業: " + (consultation.character.business || "未設定") %>
+              <%= "一人称: " + (consultation.character.given_name || "未設定") %>
+              <%= "年齢: " + (consultation.character.age || "未設定") %>
+            <%end%>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

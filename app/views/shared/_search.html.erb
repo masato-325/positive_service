@@ -1,0 +1,57 @@
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <%= search_form_for search, url: search_path, html: { class: 'd-flex flex-wrap align-items-center' } do |f| %>
+        <!-- 上部の行 -->
+        <div class="row mb-2 col-12">
+          <div class="col">
+            <%= f.label :title_cont, "質問内容", class: "form-label fw-bold" %>
+            <%= f.search_field :title_cont, class: "form-control", placeholder: "質問内容を検索" %>
+          </div>
+          <div class="col">
+            <%= f.label :message_cont, "回答内容", class: "form-label fw-bold" %>
+            <%= f.search_field :message_cont, class: "form-control", placeholder: "回答内容を検索" %>
+          </div>
+          <div class="col">
+            <%= f.label :created_at_gteq, "質問日時", class: "form-label fw-bold" %>
+            <%= f.date_field :created_at_gteq, class: "form-control" %>
+          </div>
+        </div>
+
+        <!-- 下部の行 -->
+        <div class="row mb-10">
+          <div class="col-md-4">
+            <%= f.label :character_name_cont, "キャラクター名", class: "form-label fw-bold" %>
+            <%= f.search_field :character_name_cont, class: "form-control", placeholder: "キャラクター名を検索" %>
+          </div>
+          <div class="col">
+            <%= f.label :character_personality_eq, "性格", class: "form-label fw-bold" %>
+            <%= f.select :character_personality_eq, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+          </div>
+          <div class="col">
+            <%= f.label :character_speak_type_eq, "話し方" , class: "form-label fw-bold"%>
+            <%= f.select :character_speak_type_eq, Character.speak_types.map { |key, _| [Character.human_attribute_name("speak_type.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+          </div>
+          <div class="col">
+            <%= f.label :character_business_eq, "職業", class: "form-label fw-bold" %>
+            <%= f.select :character_business_eq, Character.businesses.map { |key, _| [Character.human_attribute_name("business.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+          </div>
+          <div class="col">
+            <%= f.label :character_given_name_eq, "一人称", class: "form-label fw-bold" %>
+            <%= f.select :character_given_name_eq, Character.given_names.map { |key, _| [Character.human_attribute_name("given_name.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+          </div>
+          <div class="col">
+            <%= f.label :character_age_eq, "年齢", class: "form-label fw-bold" %>
+            <%= f.select :character_age_eq, Character.ages.map { |key, _| [Character.human_attribute_name("age.#{key}"), key] }.prepend(["指定しない", nil]), {}, class: "form-select" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <%= f.submit "検索", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@ class ConsultationsController < ApplicationController
     # フォームから送信されたデータを使用して Character の属性を取得
     character_info = {
       personality: @consultation_form.personality,
-      speak_style: @consultation_form.speak_style,
+      speak_type: @consultation_form.speak_type,
       business: @consultation_form.business,
       given_name: @consultation_form.given_name,
       age: @consultation_form.age,
@@ -59,7 +59,7 @@ class ConsultationsController < ApplicationController
   end
 
   def consultation_form_params
-    params.require(:consultation_form).permit(:title, :public_status, :name, :personality, :speak_style, :business, :given_name, :age, :gender)
+    params.require(:consultation_form).permit(:title, :public_status, :name, :personality, :speak_type, :business, :given_name, :age, :gender)
   end
   
   def set_consultation
