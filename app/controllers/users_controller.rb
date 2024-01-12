@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+include Searchable
+  
   def new
     @user = User.new
   end
@@ -12,11 +14,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def show # マイページ
     @user = current_user
     @consultations = @user.consultations
-    @search = @consultations.ransack(params[:q])
-    @results = @search.result
+    @search = @user.consultations.ransack(search_params) # 検索オブジェクトを生成
+    @results = @search.result.includes(:character) # 検索結果を取得
   end
   
   private

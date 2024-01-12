@@ -10,7 +10,7 @@ class OpenAiClient
     additional_prompt = "以下の設定でロールプレイをして、ネガティブな思考をポジティブなものに変えましょう。
                         Name: #{character_info[:name]},
                         Personality: #{Character.human_attribute_name("personality.#{character_info[:personality]}")},
-                        Speech style: #{Character.human_attribute_name("speak_style.#{character_info[:speak_style]}")},
+                        Speech style: #{Character.human_attribute_name("speak_type.#{character_info[:speak_type]}")},
                         Job: #{Character.human_attribute_name("business.#{character_info[:business]}")},
                         Pronoun: #{Character.human_attribute_name("given_name.#{character_info[:given_name]}")},
                         Age: #{Character.human_attribute_name("age.#{character_info[:age]}")},

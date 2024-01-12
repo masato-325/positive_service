@@ -1,5 +1,8 @@
-
-<%= render 'shared/search', search: @search, search_path: login_top_path %>
+<h1 class="row justify-content-center">ようこそ！！<%= @user.name %>さん</h1>
+<div class="row-md-4 justify-content-center">
+  <%= link_to "キャラクターを作って悩みを打ち明ける", new_consultation_path, class: "btn btn-primary btn-lg" %>
+</div>
+    <%= render 'shared/search', search: @search, search_path: login_top_path %>
 <div>
   <%= link_to "リセット", login_top_path(@consultation), class: "btn btn-outline-secondary" %>
 </div>
