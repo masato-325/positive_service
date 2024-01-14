@@ -16,7 +16,6 @@ include Searchable
 
   def show # マイページ
     @user = current_user
-    @consultations = @user.consultations
     @search = @user.consultations.ransack(search_params) # 検索オブジェクトを生成
     @results = @search.result.includes(:character) # 検索結果を取得
   end
@@ -26,4 +25,12 @@ include Searchable
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def search_params
+    params.fetch(:q, {}).permit(:title_cont, :message_cont, :created_at_gteq, 
+                                :character_name_cont, :character_personality_eq, 
+                                :character_speak_type_eq, :character_business_eq, 
+                                :character_given_name_eq, :character_age_eq)
+  end
+
 end
