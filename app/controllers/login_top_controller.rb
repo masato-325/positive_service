@@ -9,4 +9,13 @@ include Searchable
 
   def policy; end
 
+  private
+
+  def search_params
+    params.fetch(:q, {}).permit(:title_cont, :message_cont, :created_at_gteq, 
+                                :character_name_cont, :character_personality_eq, 
+                                :character_speak_type_eq, :character_business_eq, 
+                                :character_given_name_eq, :character_age_eq)
+  end
+
 end

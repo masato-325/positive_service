@@ -3,33 +3,20 @@
   <div>
     <%= link_to "リセット", mypage_path(@user), class: "btn btn-outline-secondary" %>
   </div>
-  <% if params[:q].present? %>
-      <div class="row">
-    <% @results.each do |consultation| %>
-      <!-- 各 consultation の表示 -->
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
-            <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
-            <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <% else %>
+  <div id="search-results">
     <div class="row">
-      <% @consultations.each do |consultation| %>
+      <% @results.each do |consultation| %>
+        <!-- 各 consultation の表示 -->
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
               <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
-                <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
+              <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
             </div>
           </div>
         </div>
-    <% end %>
-  <% end %>
-</div>
+      <% end %>
+    </div>
+  </div>
+
