@@ -8,5 +8,5 @@ application.register("search", SearchController)
 // Configure Stimulus development experience
 application.debug = false
 window.Stimulus   = application
-Turbo.session.drive = false
+
 export { application }
