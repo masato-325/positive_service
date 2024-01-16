@@ -1,23 +1,24 @@
+// app/javascript/controllers/search_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["input"]
-
   connect() {
-    this.element.addEventListener('turbo:submit-end', this.resetFocus.bind(this))
+    // turbo:load イベントが発生したときに resetFocus メソッドを呼び出す
+    document.addEventListener('turbo:load', this.resetFocus.bind(this))
   }
 
   resetFocus() {
-    // 現在フォーカスされている入力フィールドのIDを取得
-    const activeElementId = document.activeElement.id
+    // 前回フォーカスされていた要素のIDを取得
+    const activeElementId = document.activeElement.id;
 
-    // 少し待ってからフォーカスを復元
-    setTimeout(() => {
-      const activeElement = this.element.querySelector(`#${activeElementId}`)
-      activeElement && activeElement.focus()
-    }, 0)
+    // IDが存在し、要素を取得できた場合にフォーカスを設定
+    if (activeElementId) {
+      const activeElement = this.element.querySelector(`#${activeElementId}`);
+      activeElement && activeElement.focus();
+    }
   }
 
+  // 200ミリ秒間入力がなければ送信
   submit() {
     clearTimeout(this.timeout)
 

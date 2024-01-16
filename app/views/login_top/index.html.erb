@@ -1,13 +1,16 @@
+<!-- app/views/login_top/index.html.erb -->
 <h1 class="row justify-content-center">ようこそ！！<%= @user.name %>さん</h1>
 <div class="row-md-4 justify-content-center">
   <%= link_to "キャラクターを作って悩みを打ち明ける", new_consultation_path, class: "btn btn-primary btn-lg" %>
 </div>
-    <%= render 'shared/search', search: @search, search_path: login_top_path %>
+
+    <%= render 'shared/search', search: @search, search_results: @search_results, search_path: login_top_path %>
+
 <div>
   <%= link_to "リセット", login_top_path(@consultation), class: "btn btn-outline-secondary" %>
 </div>
 <div id="search-results">
-  <% @consultations.each do |consultation| %>
+  <% @search_results.each do |consultation| %>
     <div class="col-md-6">
       <div class="card mb-3" style="width: 80rem;">
         <div class="list-group list-group-flush">
