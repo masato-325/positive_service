@@ -44,7 +44,7 @@
 
     <div class="col-6">
       <%= f.label :public_status, "公開にすると全てのユーザーに公開されます", class: "form-label" %>
-      <%= f.select :public_status, Consultation.public_statuses.keys.map { |status| [status, status] }, {}, class: "form-select", id: 'consultation-public-status' %>
+      <%= f.select :public_status, Consultation.public_statuses.keys.map { |status| [status, status] }, {}, class: "form-select", id: 'consultation-form-public-status' %>
     </div>
 
     <div class="col-12">
