@@ -46,6 +46,7 @@ gem 'sorcery'
 gem 'ruby-openai'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'ransack'
+gem 'rubocop'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

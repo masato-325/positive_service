@@ -5,6 +5,8 @@
 
 .back-image {
   background-image: image-url("back.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .nav-link {
   white-space: nowrap;
