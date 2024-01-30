@@ -3,42 +3,42 @@
   <h3>あなただけのAIを作ってみましょう！！</h3>
   <%= form_with(model: @consultation_form, url: consultations_path, method: "post", class: "row g-3", id: "consultation-form") do |f| %>
     <div class="col-md-6">
-      <%= f.label :name, "キャラクター名", class: "form-label" %>
+      <%= f.label :name, Character.human_attribute_name(:name), class: "form-label" %>
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :personality, "性格", class: "form-label" %>
+      <%= f.label :personality, Character.human_attribute_name("personality") , class: "form-label" %>
       <%= f.select :personality, Character.personalities.map { |key, _| [Character.human_attribute_name("personality.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :speak_type, "話し方", class: "form-label" %>
+      <%= f.label :speak_type, Character.human_attribute_name("speak_type"), class: "form-label" %>
       <%= f.select :speak_type, Character.speak_types.map { |key, _| [Character.human_attribute_name("speak_type.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :business, "職業", class: "form-label" %>
+      <%= f.label :business, Character.human_attribute_name("business"), class: "form-label" %>
       <%= f.select :business, Character.businesses.map { |key, _| [Character.human_attribute_name("business.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :given_name, "一人称", class: "form-label" %>
+      <%= f.label :given_name, Character.human_attribute_name("given_name"), class: "form-label" %>
       <%= f.select :given_name, Character.given_names.map { |key, _| [Character.human_attribute_name("given_name.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :age, "年齢", class: "form-label" %>
+      <%= f.label :age, Character.human_attribute_name("age"), class: "form-label" %>
       <%= f.select :age, Character.ages.map { |key, _| [Character.human_attribute_name("age.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-md-6">
-      <%= f.label :gender, "性別", class: "form-label" %>
+      <%= f.label :gender, Character.human_attribute_name("gender"), class: "form-label" %>
       <%= f.select :gender, Character.genders.map { |key, _| [Character.human_attribute_name("gender.#{key}"), key] }, {}, class: "form-select" %>
     </div>
 
     <div class="col-12">
-      <%= f.label :title, "質問", class: "form-label" %>
+      <%= f.label :title, Consultation.human_attribute_name("title"), class: "form-label" %>
       <%= f.text_area :title, placeholder: "AIに悩みを打ち明けてみよう!!", class: "form-control" %>
     </div>
 

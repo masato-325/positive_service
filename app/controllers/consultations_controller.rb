@@ -31,7 +31,7 @@ class ConsultationsController < ApplicationController
     # ConsultationForm オブジェクトの保存
     if @consultation_form.save
       # 保存に成功したらそのConsultationの詳細ページへリダイレクト
-      flash[:notice] = '相談を投稿しました'
+      flash[:notice] = 'AIが回答しました'
       redirect_to consultation_path(@consultation_form.consultation)
     else
       # 失敗したらnewテンプレートを再表示

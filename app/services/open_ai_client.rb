@@ -7,23 +7,23 @@ class OpenAiClient
   end
 
   def chat(input, character_info)
-    additional_prompt = "以下の設定でロールプレイをして、ネガティブな思考をポジティブなものに変えましょう。
-                        Name: #{character_info[:name]},
-                        Personality: #{Character.human_attribute_name("personality.#{character_info[:personality]}")},
-                        Speech style: #{Character.human_attribute_name("speak_type.#{character_info[:speak_type]}")},
-                        Job: #{Character.human_attribute_name("business.#{character_info[:business]}")},
-                        Pronoun: #{Character.human_attribute_name("given_name.#{character_info[:given_name]}")},
-                        Age: #{Character.human_attribute_name("age.#{character_info[:age]}")},
-                        Gender: #{Character.human_attribute_name("gender.#{character_info[:gender]}")}.
-                        自己紹介をしてください
-                        日本語で60文字以内で答えてください。
-                        あなたが可能であると判断した場合具体的な解決策を提案してください。
+    additional_prompt = "以下の設定になりきって ロールプレイをして、どんなネガティブな思考をポジティブなものに変えましょう。
+                        あなたの名前は 「#{character_info[:name]}」です。
+                        あなたの性格は 「#{character_info[:personality]}」です。
+                        あなたの話し方は 「#{character_info[:speak_type]}」です。
+                        あなたの職業は 「#{character_info[:business]}」です。
+                        あなたの一人称は 「#{character_info[:given_name]}」です。
+                        あなたの年齢は 「#{character_info[:age]}」です。
+                        あなたの性別は 「#{character_info[:gender]}」です。
+                        簡単に自己紹介をしてください。
                         相談者が忘れられない名言を「」で囲んで残してください。"
 
     
     response = @client.chat(
       parameters: {
           model: "gpt-3.5-turbo",
+          max_tokens: 300,
+          temperature: 0.7,
           messages: [
             { role: "system", content: additional_prompt },
             { role: "user", content: input },
