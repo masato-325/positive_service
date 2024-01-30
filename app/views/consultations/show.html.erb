@@ -9,7 +9,7 @@
       </div>
       <div class="card mb-3">
         <div class="card-body" style="background-color: #e2f0cb; border-left: 5px solid #4CAF50; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-          <h5 class="card-title"><%=@character.name if @character.name.present? %>の回答</h5>
+          <h5 class="card-title"><%=@character.name if @character.present? %>の回答</h5>
           <p class="card-text" style="font-weight: bold;"><%= @consultation.message %></p>
           <% if @character.present? %>
             <h5 class="card-title">キャラクター設定</h5>
