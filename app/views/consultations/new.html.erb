@@ -1,6 +1,8 @@
 <div class="m-2 border p-3">
   <%= render "error" %>
   <h3>あなただけのAIを作ってみましょう！！</h3>
+  <%= button_tag "ランダムに設定", type: "button", id: "randomize-button", class: "btn btn-info" %>
+
   <%= form_with(model: @consultation_form, url: consultations_path, method: "post", class: "row g-3", id: "consultation-form") do |f| %>
     <div class="col-md-6">
       <%= f.label :name, Character.human_attribute_name(:name), class: "form-label" %>

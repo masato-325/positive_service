@@ -4,4 +4,4 @@ Rails.start()
 import "controllers"
 import "bootstrap"
 import "@popperjs/core"
-import "consultations_new"
+import "./custom/consultations_new"
