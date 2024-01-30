@@ -14,6 +14,7 @@ class ConsultationsController < ApplicationController
   
     # フォームから送信されたデータを使用して Character の属性を取得
     character_info = {
+      name: @consultation_form.name,
       personality: @consultation_form.personality,
       speak_type: @consultation_form.speak_type,
       business: @consultation_form.business,
