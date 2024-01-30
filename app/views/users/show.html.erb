@@ -1,24 +1,26 @@
 <h1><%= @user.name %>さんのマイページ</h1>
 <%= render 'shared/search', search: @search, search_results: @search_results, search_path: mypage_path %>
 
-<div class="row">
-  <div class="col">
-    <%= link_to "リセット", mypage_path(@user), class: "btn btn-outline-secondary" %>
+<div class="row justify-content-end">
+  <div class="col-md-2">
+    <%= link_to "リセット", mypage_path(@user), class: "btn btn-outline-light" %>
   </div>
 </div>
 <div id="search-results">
-  <div class="row">
-    <% @search_results.each do |consultation| %>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
-            <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
-            <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <% @search_results.each do |consultation| %>
+        <div class="col-md-3">
+          <div class="card" style="padding: 6px; margin: 12px;">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
+              <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+              <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
