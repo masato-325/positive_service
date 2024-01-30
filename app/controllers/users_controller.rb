@@ -19,7 +19,7 @@ include Searchable
     @user = current_user
     @consultations = @user.consultations
     @search = @consultations.ransack(search_params) # 検索オブジェクトを生成
-    @search_results = @search.result.includes(:character) # 検索結果を取得
+    @search_results = @search.result.includes(:character).order(created_at: :desc) # 検索結果を取得
   end
   
   private
