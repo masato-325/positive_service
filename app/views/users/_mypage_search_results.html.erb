@@ -6,6 +6,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= link_to consultation.title, consultation_path(consultation) %></h5>
             <p class="card-text"><%= truncate(consultation.message, length: 30) %></p>
+            <p class="card-text"><%= consultation.created_at.strftime("%Y/%m/%d %H:%M") %></p>
             <%= button_to "削除", consultation_path(consultation), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-secondary", form: { class: "inline" } %>
           </div>
         </div>
