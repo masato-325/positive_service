@@ -42,9 +42,9 @@
     </div>
   </div>
 
-  <div class= "container" style= "margin: 10px;">
-    <div class= "row">
-      <div class= "col-md-6">
+  <div class= "container" style= "margin: 20px auto; display: flex; justify-content: center;">
+    <div class="row">
+      <div class="col-md-7">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -60,7 +60,7 @@
         </div>
       </div>
 
-      <div class="col-md-6" style = "background-color: rgba(207, 212, 211, 0.626);">
+      <div class="col-md-5" style = "background-color: rgba(207, 212, 211, 0.626);">
         <div style= "padding: 16px;">
           <h5 style="color: black; font-family: 'Dela Gothic One', sans-serif; color: #28a44a;">
             自分だけのAIを作ってみよう
@@ -88,10 +88,21 @@
       </div>
     </div>
   </div>
-  <div class="row-md-4">
-    <h5>アカウントをお持ちでない方はこちらから</h5>
-    <%= link_to "新規登録",new_user_path , class: "btn btn-primary btn-lg" %>
-    <h5>すでにアカウントをお持ちの方はこちらから</h5>
-    <%= link_to "ログイン", login_path, class: "btn btn-primary btn-lg" %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h5>アカウントをお持ちでない方はこちらから</h5>
+      </div>
+      <div class="col-12 text-center mb-3">
+        <%= link_to "新規登録", new_user_path, class: "btn btn-primary btn-lg" %>
+      </div>
+      <div class="col-12 text-center">
+        <h5>すでにアカウントをお持ちの方はこちらから</h5>
+      </div>
+      <div class="col-12 text-center">
+        <%= link_to "ログイン", login_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
   </div>
 </div>
+
