@@ -4,10 +4,19 @@ document.addEventListener('turbo:load', (event) => {
     form.onsubmit = function() {
       const publicStatus = document.getElementById('consultation-form-public-status').value;
       if (publicStatus === '公開') {
-        return confirm('公開されますがよろしいですか？');
+        const isConfirmed = confirm('公開されますがよろしいですか？');
+        if (isConfirmed) {
+          // ローディング画面を表示
+          document.getElementById('loadingScreen').style.display = 'block';
+        }
+        return isConfirmed;
       }
+      // 公開ではない場合もローディング画面を表示
+      document.getElementById('loadingScreen').style.display = 'block';
       return true;
     };
+
+
 
     const randomizeButton = document.getElementById("randomize-button");
     if (randomizeButton) {
@@ -61,5 +70,4 @@ document.addEventListener('turbo:load', (event) => {
     if (!select) return; // 要素が見つからない場合は処理をスキップ
     select.value = value;
   }
-  
 });
