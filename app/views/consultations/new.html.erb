@@ -2,6 +2,8 @@
   <%= render "error" %>
   <h3>あなただけのAIを作ってみましょう！！</h3>
   <%= button_tag "ランダムに設定", type: "button", id: "randomize-button", class: "btn btn-info" %>
+  <%= button_tag "優しいお姉ちゃん", type: "button", id: "sister-button", class: "btn btn-info" %>
+  <%= button_tag "破天荒お兄ちゃん", type: "button", id: "brother-button", class: "btn btn-info" %>
 
   <%= form_with(model: @consultation_form, url: consultations_path, method: "post", class: "row g-3", id: "consultation-form") do |f| %>
     <div class="col-md-6">
