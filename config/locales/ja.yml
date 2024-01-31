@@ -17,7 +17,7 @@ ja:
         name: "キャラクター名"
         personality: "性格"
         speak_type: "話し方"
-        business: "職業"
+        business: "関係性"
         given_name: "一人称"
         age: "年齢"
         gender: "性別"

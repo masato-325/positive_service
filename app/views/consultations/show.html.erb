@@ -1,62 +1,58 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%=@user.name%>さんの質問</h5>
-          <p class="card-text"><%= @consultation.title %></p>
-        </div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=@user.name%>さんの質問</h5>
+        <p class="card-text"><%= @consultation.title %></p>
       </div>
-      <div class="card mb-3">
-        <div class="card-body" style="background-color: #e2f0cb; border-left: 5px solid #4CAF50; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-          <h5 class="card-title"><%=@character.name if @character.present? %>の回答</h5>
-          <p class="card-text" style="font-weight: bold;"><%= @consultation.message %></p>
-          <% if @character.present? %>
-            <h5 class="card-title">キャラクター設定</h5>
-            <p class="card-text">
-              <%= "性格: " + @character.personality if @character.personality.present? %>
-              <%= "話し方: " + @character.speak_type if @character.speak_type.present? %>
-              <%= "職業: " + @character.business if @character.business.present? %>
-              <%= "一人称: " + @character.given_name if @character.given_name.present? %>
-              <%= "年齢: " + @character.age if @character.age.present? %>
-              <%= "性別: " + @character.gender if @character.gender.present? %>
-            </p>
-          <% end %>
-        </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body" style="background-color: #e2f0cb; border-left: 5px solid #4CAF50; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h5 class="card-title"><%=@character.name if @character.present? %>の回答</h5>
+        <p class="card-text" style="font-weight: bold;"><%= @consultation.message %></p>
+        <% if @character.present? %>
+          <h5 class="card-title">キャラクター設定</h5>
+          <p class="card-text">
+            <%= "性格: " + @character.personality if @character.personality.present? %>
+            <%= "話し方: " + @character.speak_type if @character.speak_type.present? %>
+            <%= "職業: " + @character.business if @character.business.present? %>
+            <%= "一人称: " + @character.given_name if @character.given_name.present? %>
+            <%= "年齢: " + @character.age if @character.age.present? %>
+            <%= "性別: " + @character.gender if @character.gender.present? %>
+          </p>
+        <% end %>
       </div>
-
-
-      <% if logged_in? %>
-        <div class="mt-4">
-          <%= form_with(model: [ @consultation, Comment.new ]) do |form| %>
-            <div class="form-group">
-              <%= form.text_area :content, rows: 4, class: 'form-control', placeholder: 'コメントを入力...' %>
-            </div>
-            <%= form.submit 'コメント投稿', class: 'btn btn-primary mt-2' %>
-          <% end %>
-        </div>
-      <% end %>
-
+    </div>
+    <% if logged_in? %>
       <div class="mt-4">
-        <% @consultation.comments.each do |comment| %>
-          <div class="card mb-2 shadow-sm">
-            <div class="card-body">
-              <p class="card-text"><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
-            </div>
+        <%= form_with(model: [ @consultation, Comment.new ]) do |form| %>
+          <div class="form-group">
+            <%= form.text_area :content, rows: 4, class: 'form-control', placeholder: 'コメントを入力...' %>
           </div>
+          <%= form.submit 'コメント投稿', class: 'btn btn-primary mt-2' %>
         <% end %>
       </div>
-    </div>
+    <% end %>
 
-    <div class="col-md-4">
-      <% if logged_in? && current_user == @consultation.user %>
-        <% extract_quotes_from_message(@consultation.message).each do |quote| %>
-          <%= link_to "https://twitter.com/share?url=#{request.base_url}&text=AI『#{CGI.escape(quote)}』&hashtags=ポジティブは世界を救う！！", target: '_blank', class: 'btn btn-info btn-block mt-2' do %>
-            『<%= truncate(quote, length: 25) %>』をＸでシェアする
-          <% end %>
-        <% end %>
+    <div class="mt-4">
+      <% @consultation.comments.each do |comment| %>
+        <div class="card mb-2 shadow-sm">
+          <div class="card-body">
+            <p class="card-text"><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
+          </div>
+        </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="col-md-4">
+    <% if logged_in? && current_user == @consultation.user %>
+      <% extract_quotes_from_message(@consultation.message).each do |quote| %>
+        <%= link_to "https://twitter.com/share?url=#{request.base_url}&text=AI『#{CGI.escape(quote)}』&hashtags=ポジティブは世界を救う！！", target: '_blank', class: 'btn btn-info btn-block mt-2' do %>
+          『<%= truncate(quote, length: 25) %>』をＸでシェアする
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
